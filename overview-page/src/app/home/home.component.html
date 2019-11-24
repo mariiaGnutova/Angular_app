@@ -3,7 +3,7 @@
     <div class="jobs-component">
         <div class='jobs-list' id="scroll">
             <div class="scrolled-jobs">
-                <div class="job-overview" *ngFor="let job of jobs.body" (click)="addShowClass()" >
+                <div class="job-overview" *ngFor="let job of jobs.body" (click)="addShowClass(job.id)" >
                     <mat-card *ngIf="job.state == 'active'" (click)="showMore(job)" style="margin-top:10px;">
                         <div class="card-top">
                             <img mat-card-sm-image src="{{job.thumbnail}}" alt="thumbnail">
@@ -25,7 +25,7 @@
 
                     </mat-card>
 
-                    <div class="job-info-mob mob" *ngIf="job.state == 'active'" [ngClass]="status ? 'show' : ''">
+                    <div class="job-info-mob mob" *ngIf="job.state == 'active'" [ngClass]="(job.id == selectedId) ? 'show' : ''">
                             <!-- if nothing is selected-->
                            
                             <h3>{{job.title}}</h3>

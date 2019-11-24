@@ -27,10 +27,10 @@ export class HomeComponent implements OnInit {
     this.attachments = job["attachments"];
     this.title = job["title"];
   }
-
+  selectedId = 0;
   status: boolean = false;
-  addShowClass(){
-    this.status = !this.status; 
+  addShowClass(newId){
+    this.selectedId = newId; 
   }
   
 
