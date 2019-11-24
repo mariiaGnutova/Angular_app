@@ -3,7 +3,7 @@
     <div class="jobs-component">
         <div class='jobs-list' id="scroll">
             <div class="scrolled-jobs">
-                <div class="job-overview" *ngFor="let job of jobs.body">
+                <div class="job-overview" *ngFor="let job of jobs.body" (click)="addShowClass()" >
                     <mat-card *ngIf="job.state == 'active'" (click)="showMore(job)" style="margin-top:10px;">
                         <div class="card-top">
                             <img mat-card-sm-image src="{{job.thumbnail}}" alt="thumbnail">
@@ -24,14 +24,31 @@
                         </mat-card-actions>
 
                     </mat-card>
+
+                    <div class="job-info-mob mob" *ngIf="job.state == 'active'" [ngClass]="status ? 'show' : ''">
+                            <!-- if nothing is selected-->
+                           
+                            <h3>{{job.title}}</h3>
+                            <!-- <mat-spinner *ngIf="description == ''"></mat-spinner>    -->
+                            <div>
+                                <p>{{job.description}}</p>
+                            </div>
+                            <div class="attachments" *ngIf="job.attachments.length > 0">
+                                <div class="attachment-container" *ngFor="let attachMob of job.attachments">
+                                    <img class="attachments-img" src="{{attachMob}}" alt="attachment">
+                                </div>
+                            </div>
+                        </div>
+
+
                 </div>
             </div>
         </div>
         <div class="job-info desc">
-           <!-- if nothing is selected-->
-            <div class="undefign" *ngIf="title == ''">
+            <!-- if nothing is selected-->
+            <div class="undefined" *ngIf="title == ''">
                 <h3>{{jobs.body[0].title}}</h3>
-                
+
                 <div>
                     <p>{{jobs.body[0].description}}</p>
                 </div>

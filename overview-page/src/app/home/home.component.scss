@@ -1,4 +1,4 @@
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 
 %text-css {
   font-family: Montserrat;
@@ -8,89 +8,158 @@
   margin: 0;
 }
 
-
-
-@media only screen and (min-width : 560px){
-  .jobs-component{
+.desc {
+  display: none;
+}
+.mob {
+  display: block;
+}
+@media only screen and (min-width: 560px) {
+  .mob {
+    display: none;
+  }
+  .jobs-component {
     // display: grid;
     // grid-template-columns: 1fr 3fr
-  
-  .jobs-list{
-    padding: 0px 12px 75px 5px;
-    height: 100%;
-    width: 250px;
-    position: fixed;
-    z-index: 1;
-    top: 64px;
-    left: 0;
-    overflow-x: hidden;
-    
-  }
-  .job-info{
-    padding-left: 250px;
-  }
-}
-}
 
-.job-overview :hover{
-  background-color: #f5f5f5;
-  cursor:pointer;
-}
-  .card-top{
-    display: flex;
-    justify-content: space-between;
-  }
-  .mat-card{
-    padding: 0 !important;
-    @extend %text-css;
-      .mat-icon { color:gold; }
-      ::ng-deep .mat-card-actions {
-        margin-left: 0;
-        margin-right: 0;
-       
+    .jobs-list {
+      padding: 0px 12px 75px 5px;
+      height: 100%;
+      width: 250px;
+      position: fixed;
+      z-index: 1;
+      top: 64px;
+      left: 0;
+      overflow-x: hidden;
+    }
+    .job-info {
+      padding: 0 0 50px 250px;
+    }
+    .desc {
+      display: block;
     }
   }
-  
-  .mat-card-sm-image {
-    margin: auto;
-    margin-top: 10px;
-    border-radius: 50%;
 }
 
-mat-card-header{
+.job-overview :hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+.card-top {
+  display: flex;
+  justify-content: space-between;
+}
+.mat-card {
+  padding: 0 !important;
+  @extend %text-css;
+  .mat-icon {
+    color: gold;
+  }
+  ::ng-deep .mat-card-actions {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.mat-card-sm-image {
+  margin: auto;
+  margin-top: 10px;
+  border-radius: 50%;
+}
+
+mat-card-header {
   margin-top: 7px;
   ::ng-deep .mat-card-header-text {
     margin: 7px !important;
-      mat-card-title {
-        margin-bottom: 20px !important;
-      }
+    mat-card-title {
+      margin-bottom: 20px !important;
+    }
   }
 }
 
 .job-info {
   @extend %text-css;
-  h3{
+
+  .undefined {
+    // background-color: #f5f5f5;
+  }
+  h3 {
     text-align: center;
     font-size: 18px;
   }
-   div{
-  padding: 10px;
-   p{
-  font-size: 18px;
+
+  p {
+    font-size: 18px;
+
+    font-weight: 500;
+    line-height: 1.83;
+  }
+
+  .attachments {
+    display: block;
+    .attachment-container {
+      padding-top: 5px;
+      margin: auto;
+      .attachments-img {
+        width: 100%;
+        height: auto;
+      }
+    
+    }
+  }
   
-  font-weight: 500;
-  line-height: 1.83;
-}
-   }
-   .attachments{
-    display: flex;
-    flex-wrap: wrap;
-    .attachment-container{
-      padding: 5px;
-    .attachments-img{
-      width: auto;
-      height: 250px;
+  @media only screen and (min-width: 560px) {
+    .attachments {
+      display: flex;
+      flex-wrap: wrap;
+      .attachment-container {
+        padding: 5px;
+        .attachments-img {
+          width: auto;
+          height: 250px;
+        }
+      }
     }
   }
 }
+
+.job-info-mob {
+  @extend %text-css;
+  display: none;
+  h3 {
+    text-align: center;
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 18px;
+
+    font-weight: 500;
+    line-height: 1.83;
+  }
+
+  .attachments {
+    display: block;
+    .attachment-container {
+      padding-top: 5px;
+      margin: auto;
+      .attachments-img {
+        width: 100%;
+        height: auto;
+      }
+    
+    }
+  }
+  
+}
+
+
+
+.show{
+ display: block;
+}
+@media only screen and (min-width: 560px) {
+  .show{
+    display: none;
+  }
 }

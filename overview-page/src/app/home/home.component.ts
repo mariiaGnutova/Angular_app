@@ -28,8 +28,9 @@ export class HomeComponent implements OnInit {
     this.title = job["title"];
   }
 
-  getDescription(){
-    return this.jobs["body"][0]["description"];
+  status: boolean = false;
+  addShowClass(){
+    this.status = !this.status; 
   }
   
 
