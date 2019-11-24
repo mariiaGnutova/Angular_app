@@ -28,9 +28,10 @@ export class HomeComponent implements OnInit {
     this.title = job["title"];
   }
   selectedId = 0;
-  
+  status: boolean = false;
   addShowClass(newId){
     this.selectedId = newId; 
+    this.status = !this.status;   
   }
   
 
