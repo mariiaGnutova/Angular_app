@@ -1,25 +1,57 @@
-<div style="padding: 13px;">
+<div style="padding: 13px; margin-top: 65px;">
     <mat-spinner *ngIf="jobs.body.length == 0"></mat-spinner>
-   <div *ngFor="let job of jobs.body">
-    <mat-card *ngIf="job.state == 'active'" style="margin-top:10px;">
-        
-        <img mat-card-sm-image src="{{job.thumbnail}}" alt="thumbnail">
-        <mat-card-header>
-            
-            <mat-card-title>{{job.title}}</mat-card-title> -->
-            <!-- <mat-card-subtitle>{{product.price}} $/ {{product.quantity}}
-            </mat-card-subtitle> -->
-        </mat-card-header>
-        <mat-card-content>
-            <!-- <p>
-                {{product.description}}
-            </p> -->
-            <!-- <img style="height:100%; width: 100%;" src="{{ job.thumbnail }}" /> -->
-        </mat-card-content>
-        <mat-card-actions>
-      <button mat-button> Buy product</button>
-    </mat-card-actions>
+    <div class="jobs-component">
+        <div class='jobs-list' id="scroll">
+            <div class="scrolled-jobs">
+                <div class="job-overview" *ngFor="let job of jobs.body">
+                    <mat-card *ngIf="job.state == 'active'" (click)="showMore(job)" style="margin-top:10px;">
+                        <div class="card-top">
+                            <img mat-card-sm-image src="{{job.thumbnail}}" alt="thumbnail">
+                            <mat-icon *ngIf="job.is_awarded == true" aria-hidden="false" aria-label="if awarded">stars
+                            </mat-icon>
+                        </div>
+                        <mat-card-header>
 
-    </mat-card>
-</div>
+                            <mat-card-title>{{job.title}}</mat-card-title>
+                            <mat-card-subtitle>{{job.zip_code}} {{job.city}}
+                            </mat-card-subtitle>
+                        </mat-card-header>
+                        <!-- <mat-card-content>
+                hgcghcgjc
+                    </mat-card-content> -->
+                        <mat-card-actions>
+                            <button (click)="showMore(job)" mat-button>More Info..</button>
+                        </mat-card-actions>
+
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+        <div class="job-info desc">
+           <!-- if nothing is selected-->
+            <div class="undefign" *ngIf="title == ''">
+                <h3>{{jobs.body[0].title}}</h3>
+                
+                <div>
+                    <p>{{jobs.body[0].description}}</p>
+                </div>
+                <div class="attachments" *ngIf="jobs.body[0].attachments.length > 0">
+                    <div class="attachment-container" *ngFor="let attachImage of jobs.body[0].attachments">
+                        <img class="attachments-img" src="{{attachImage}}" alt="attachment">
+                    </div>
+                </div>
+            </div>
+
+            <h3>{{title}}</h3>
+            <!-- <mat-spinner *ngIf="description == ''"></mat-spinner>    -->
+            <div>
+                <p>{{description}}</p>
+            </div>
+            <div class="attachments" *ngIf="attachments.length > 0">
+                <div class="attachment-container" *ngFor="let attachment of attachments">
+                    <img class="attachments-img" src="{{attachment}}" alt="attachment">
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
