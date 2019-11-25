@@ -25,7 +25,7 @@
 
                     </mat-card>
 
-                    <div class="job-info-mob mob" *ngIf="job.state == 'active'" [ngClass]="((job.id == selectedId) && (status)) ? 'show' : ''">
+                    <div class="job-info-mob mob" *ngIf="job.state == 'active'" [ngClass]="(job.id == selectedId) ? 'show' : ''">
                             <!-- if nothing is selected-->
                            
                             <h3>{{job.title}}</h3>
